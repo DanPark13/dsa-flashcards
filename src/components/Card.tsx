@@ -9,7 +9,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({question, answer}) => {
     return (
         <div className="card">
-            <h2>{question}</h2>
+            <h3>{question}</h3>
             <h3>{answer}</h3>
         </div>
     );
