@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import './Card.css'
 
 interface CardProps {
@@ -7,10 +7,16 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({question, answer}) => {
+    const [isRevealed, setIsRevealed] = useState(false);
+
+    const handleCardClick = () => {
+        setIsRevealed(!isRevealed);
+    }
+
     return (
-        <div className="card">
-            <h3>{question}</h3>
-            <h3>{answer}</h3>
+        <div className={`card ${isRevealed ? 'revealed' : ''}`} onClick={handleCardClick}>
+            <div className="cardContent question">{question}</div>
+            <div className="cardContent answer">{answer}</div>
         </div>
     );
 }

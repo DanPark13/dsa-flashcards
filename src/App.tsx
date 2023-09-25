@@ -12,7 +12,9 @@ function App() {
     <>
       <Header />
       {/* <p>Card Count: {count}</p> */}
-      <Card question="What is a Data Structure?" answer='A specific way of organizing and storing data in a computer so it can be accessed and modified efficiently.' />
+      <div style={{ padding: "40px", display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+        <Card question="What is a Data Structure?" answer='A specific way of organizing and storing data in a computer so it can be accessed and modified efficiently.' />
+      </div>
     </>
   )
 }

@@ -1,8 +1,37 @@
 .card {
-    border: 1px solid white;
-    border-radius: 8px;
-    width: 50%;
-    margin: auto;
-    margin-top: 60px;
-    padding: 10px;
+    width: 1000px;
+    height: 500px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    perspective: 1000px;
+
+}
+
+.cardContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    position: absolute;
+    font-size: 32px;
+}
+
+.question {
+    transform: rotateY(0deg);
+}
+  
+.answer {
+    transform: rotateY(180deg);
+}
+  
+.revealed .question {
+    transform: rotateY(180deg);
+}
+  
+.revealed .answer {
+    transform: rotateY(0deg);
 }
