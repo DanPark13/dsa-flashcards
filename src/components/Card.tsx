@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import './Card.css'
 
 const Card: React.FC = () => {
-    const cards = [
+    const flashCards = [
+        { question: "What if I'm not good at these types of algorithm problems?", answer: "You CAN solve any problem when you have enough practice because all you have to do is think intuitively through the problem and with a bit of code, you can solve any algorithm problem! And with this site, you'll be able to knock out data structure basics in no time." },
         { question: "What is a Data Structure?", answer: "A specific way of organizing and storing data in a computer so it can be accessed and modified efficiently." },
         { question: "What is a Bit?", answer: "A unit of information stored as a 0 (FALSE), 1 (TRUE), or NULL." },
         { question: "What is a Byte?", answer: "A group of eight bits"},
@@ -21,7 +22,7 @@ const Card: React.FC = () => {
         { question: "What is Dynamic Programming?", answer: "A method for solving problems by breaking them down into simpler subproblems. It stores the results of expensive function calls and returns the cached result when the same inputs occur again." },
     ];
 
-    const [count, setCount] = useState(cards.length)
+    const [cards, setCards] = useState(flashCards)
     // const updateCount = () => setCount(count);
 
     const [activeCardIndex, setActiveCardIndex] = useState(0);
@@ -31,27 +32,69 @@ const Card: React.FC = () => {
         setIsRevealed(!isRevealed);
     }
 
+    const [viewedIndexes, setViewedIndexes] = useState(new Set<number>());
+    const [historyStack, setHistoryStack] = useState<number[]>([]);
+    const [forwardStack, setForwardStack] = useState<number[]>([]);
+
+    const getRandomUnusedIndex = () => {
+        if (viewedIndexes.size === cards.length){
+            return -1;
+        }
+
+        let randomIndex;
+        do {
+            randomIndex = Math.floor(Math.random() * cards.length);
+        } while (viewedIndexes.has(randomIndex));
+
+        return randomIndex;
+    }
+
+    // Sets a New Unviewed Random Card unless all cards have been viewed
+    const handleRandomCard = () => {
+        const newIndex = getRandomUnusedIndex();
+        if (newIndex !== -1){
+            setHistoryStack(prevStack => [...prevStack, activeCardIndex]);
+            setForwardStack([]); // Reset forward stack when new created
+            setActiveCardIndex(newIndex);
+            setViewedIndexes(prevIndexes => new Set(prevIndexes).add(newIndex));
+            setIsRevealed(!isRevealed);
+        } else {
+            alert("Congratulations! All Cards Have Been Studied.")
+            setViewedIndexes(new Set());
+        }
+    }
+
+    // Navigates to previous card by popping from history stack and pushing to forward stack
+    const handlePrevious = () => {
+        if (historyStack.length){
+            const lastIndex = historyStack[historyStack.length - 1]
+            setForwardStack(prevStack => [activeCardIndex, ...prevStack]);
+            setActiveCardIndex(lastIndex);
+            setHistoryStack(prevStack => prevStack.slice(0, prevStack.length - 1));
+        }
+    }
+
+    // Navigates to next card in history by popping from forward stack and pushing to history stack
+    const handleNext = () => {
+        if (forwardStack.length) {
+            const nextIndex = forwardStack[0];
+            setHistoryStack(prevStack => [...prevStack, activeCardIndex]);
+            setActiveCardIndex(nextIndex);
+            setForwardStack(prevStack => prevStack.slice(1));
+        }
+    }
+
     return (
         <div>
-            <p>Number of Cards: {count}</p>
+            <p>Number of Flashcards: {flashCards.length}</p>
             <div className={`card ${isRevealed ? 'revealed' : ''}`} onClick={handleCardClick}>
-                <div className="cardContent question">{cards[activeCardIndex].question}</div>
-                <div className="cardContent answer">{cards[activeCardIndex].answer}</div>
+                <div className="cardContent question">{flashCards[activeCardIndex].question}</div>
+                <div className="cardContent answer">{flashCards[activeCardIndex].answer}</div>
             </div>
 
-            <button onClick={() => {
-                setIsRevealed(false);
-                setActiveCardIndex(prevIndex => Math.max(prevIndex - 1, 0));
-            }}>
-                Previous
-            </button>
-
-            <button onClick={() => {
-                setIsRevealed(false);
-                setActiveCardIndex(prevIndex => Math.min(prevIndex + 1, cards.length - 1));
-            }}>
-                Next
-            </button>
+            <button onClick={handlePrevious} disabled={!historyStack.length}>Go Backwards</button>
+            <button onClick={handleNext} disabled={!forwardStack.length}>Go Forwards</button>
+            <button onClick={handleRandomCard}>New Card</button>
         </div>
     );
 }
