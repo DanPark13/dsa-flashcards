@@ -22,7 +22,7 @@ const Card: React.FC = () => {
         { question: "What is Dynamic Programming?", answer: "A method for solving problems by breaking them down into simpler subproblems. It stores the results of expensive function calls and returns the cached result when the same inputs occur again." },
     ];
 
-    const [cards, setCards] = useState(flashCards)
+    const [cards] = useState(flashCards)
     // const updateCount = () => setCount(count);
 
     const [activeCardIndex, setActiveCardIndex] = useState(0);
@@ -84,6 +84,15 @@ const Card: React.FC = () => {
         }
     }
 
+    // Resets: Same Functionality as if browser was refreshed
+    const handleReset = () => {
+        setForwardStack([]);
+        setHistoryStack([]);
+        setViewedIndexes(new Set());
+        setActiveCardIndex(0);
+        setIsRevealed(false);
+    }
+
     return (
         <div>
             <p>Number of Flashcards: {flashCards.length}</p>
@@ -92,6 +101,7 @@ const Card: React.FC = () => {
                 <div className="cardContent answer">{flashCards[activeCardIndex].answer}</div>
             </div>
 
+            <button onClick={handleReset} disabled={!historyStack.length}>Reset Deck</button>
             <button onClick={handlePrevious} disabled={!historyStack.length}>Go Backwards</button>
             <button onClick={handleNext} disabled={!forwardStack.length}>Go Forwards</button>
             <button onClick={handleRandomCard}>New Card</button>

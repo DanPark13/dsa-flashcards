@@ -12,9 +12,9 @@ The following **required** functionality is completed:
 
 - [x] **The title of the card set and some information about it, such as a short description and the total number of cards are displayed**
 - [x] **A single card at a time is displayed, only showing one of the components of the information pair**
-- [ ] **A list of card pairs is created**
+- [x] **A list of card pairs is created**
 - [x] **Clicking on the card shows the corresponding component of the information pair**
-- [ ] **Clicking the next button displays a random new card**
+- [x] **Clicking the next button displays a random new card**
 
 The following **optional** features are implemented:
 
@@ -24,7 +24,8 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you added to improve the site's functionality!
+* [x] Card History (Go Forwards or Backwards)
+* [x] Reset Deck to start at beginning
 
 ## Video Walkthrough
 
