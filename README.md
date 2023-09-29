@@ -4,7 +4,7 @@ Submitted by: **Daniel Park**
 
 This web app: **FlashDSA** is your ultimate study companion tailored for those aspiring to ace LeetCode-style technical interviews. With a repository of carefully curated flashcards, it breaks down the intricacies of Data Structures & Algorithms (DSA) to digestible bits, helping candidates internalize the core concepts, strategies, and nuances vital for solving coding challenges. **FlashDSA's** cards cover arrays, linked lists, trees, graphs, stacks, queues, dynamic programming, and other pivotal DSA topics.
 
-Time spent: **X** hours spent in total
+Time spent: **7** hours spent in total
 
 ## Required Features
 
