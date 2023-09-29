@@ -102,8 +102,8 @@ const Card: React.FC = () => {
             </div>
 
             <button onClick={handleReset} disabled={!historyStack.length}>Reset Deck</button>
-            <button onClick={handlePrevious} disabled={!historyStack.length}>Go Backwards</button>
-            <button onClick={handleNext} disabled={!forwardStack.length}>Go Forwards</button>
+            <button onClick={handlePrevious} disabled={!historyStack.length}>Backwards</button>
+            <button onClick={handleNext} disabled={!forwardStack.length}>Forwards</button>
             <button onClick={handleRandomCard}>New Card</button>
         </div>
     );
