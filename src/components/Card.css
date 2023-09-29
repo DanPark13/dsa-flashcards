@@ -2,17 +2,26 @@
     width: 1000px;
     height: 500px;
     border: 1px solid #ddd;
+    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     perspective: 1000px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .cardContent {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 30px;
+    margin-right: 30px;
     backface-visibility: hidden;
     position: absolute;
     font-size: 32px;
