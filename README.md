@@ -1,52 +1,45 @@
-# Web Development Project 2 - *FlashDSA*
+# Web Development Project 3 - *FlashDSA*
 
 Submitted by: **Daniel Park**
 
 This web app: **FlashDSA** is your ultimate study companion tailored for those aspiring to ace LeetCode-style technical interviews. With a repository of carefully curated flashcards, it breaks down the intricacies of Data Structures & Algorithms (DSA) to digestible bits, helping candidates internalize the core concepts, strategies, and nuances vital for solving coding challenges. **FlashDSA's** cards cover arrays, linked lists, trees, graphs, stacks, queues, dynamic programming, and other pivotal DSA topics.
 
-Time spent: **7** hours spent in total
+Time spent: **3** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [x] **The title of the card set and some information about it, such as a short description and the total number of cards are displayed**
-- [x] **A single card at a time is displayed, only showing one of the components of the information pair**
-- [x] **A list of card pairs is created**
-- [x] **Clicking on the card shows the corresponding component of the information pair**
-- [x] **Clicking the next button displays a random new card**
+- [x] **The user can enter their guess in a box before seeing the flipside of the card**
+- [x] **Clicking on a submit button shows visual feedback about whether the answer was correct or incorrect**
+- [x] **A back button is displayed on the card and can be used to return to the previous card in a set sequence**
+- [x] **A next button is displayed on the card and can be used to navigate to the next card in a set sequence**
 
 The following **optional** features are implemented:
 
-- [ ] Cards contains images in addition to or in place of text
-- [ ] Cards have different visual styles such as color based on their category
-  - [ ] *visual style implemented*
+- [x] A shuffle button is used to randomize the order of the cards
+- [ ] A user's answer may be counted as correct even when it is slightly different from the target answer
+- [ ] A counter displays the user's current and longest streak of correct responses
+- [ ] A user can mark a card that they have mastered and have it removed from the pool of answers as well as added to a list of mastered cards
 
 The following **additional** features are implemented:
 
-* [x] Card History (Go Forwards or Backwards)
-* [x] Reset Deck to start at beginning
+* [x] Allows to reset the deck at any time
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented required features:
+Here's a walkthrough of implemented user stories:
 
-<img src='https://imgur.com/a/cYjeOen.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/yksdxz7.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-If GIF is not rendering, please via via this link: https://imgur.com/a/cYjeOen
-
-GIF created with [gifcap](https://gifcap.dev/)
+If GIF unavailable, view with this link: https://imgur.com/a/cQnrj1O
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+GIF created with [peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
 
-Challenges with doing the Backwards/Forwards functionality. Achieved using two stacks to keep history.
+A lot of the features I implemented as stretches in last week's assignment. I will also probably remove the guess answer feature or have it on the other side of the card to guess the short answer and not the entire description
 
 ## License
 
