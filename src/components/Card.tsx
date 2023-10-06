@@ -96,10 +96,19 @@ const Card: React.FC = () => {
     return (
         <div>
             <p>Number of Flashcards: {flashCards.length}</p>
+            <br></br>
+
             <div className={`card ${isRevealed ? 'revealed' : ''}`} onClick={handleCardClick}>
                 <div className="cardContent question">{flashCards[activeCardIndex].question}</div>
                 <div className="cardContent answer">{flashCards[activeCardIndex].answer}</div>
             </div>
+            <br></br>
+
+            <div className="guess">
+                Guess the answer:
+                <input type="text" name="fill in answer"></input>
+            </div>
+            <br></br>
 
             <button onClick={handleReset} disabled={!historyStack.length}>Reset Deck</button>
             <button onClick={handlePrevious} disabled={!historyStack.length}>Backwards</button>
