@@ -60,7 +60,7 @@ const Card: React.FC = () => {
             setViewedIndexes(prevIndexes => new Set(prevIndexes).add(newIndex));
             setIsRevealed(!isRevealed);
         } else {
-            alert("Congratulations! All Cards Have Been Studied.")
+            alert("Congratulations! All Cards Have Been Studied. Press 'Reset Deck' to Study Them Again.")
             setViewedIndexes(new Set());
         }
     }
@@ -91,7 +91,7 @@ const Card: React.FC = () => {
         setHistoryStack([]);
         setViewedIndexes(new Set());
         setActiveCardIndex(0);
-        setIsRevealed(false);
+        setIsRevealed(true);
     }
 
     // const handleSubmitGuess = () => {
@@ -107,7 +107,10 @@ const Card: React.FC = () => {
 
     return (
         <div>
-            <p>Number of Flashcards: {flashCards.length}</p>
+            <div className="card-counts">
+                <span>Cards Reviewed: {viewedIndexes.size}</span>
+                <span>Cards Left: {cards.length - viewedIndexes.size}</span>
+            </div>
             <br></br>
 
             <div className={`card ${isRevealed ? 'revealed' : ''}`} onClick={handleCardClick}>

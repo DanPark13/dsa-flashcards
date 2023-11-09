@@ -11,6 +11,14 @@
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.card-counts {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    /* font-size: 0.9em; */
+    /* color: #555; */
+  }
+
 .card:hover {
     transform: scale(1.03);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
