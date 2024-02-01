@@ -53,17 +53,17 @@ const Card: React.FC = () => {
     // Sets a New Unviewed Random Card unless all cards have been viewed
     const handleRandomCard = () => {
         const newIndex = getRandomUnusedIndex();
-        if (newIndex !== -1){
+        if (newIndex !== -1) {
+            setIsRevealed(false);  // Ensure the card starts on the "word" side
             setHistoryStack(prevStack => [...prevStack, activeCardIndex]);
-            setForwardStack([]); // Reset forward stack when new created
+            setForwardStack([]);  // Reset the forward stack
             setActiveCardIndex(newIndex);
             setViewedIndexes(prevIndexes => new Set(prevIndexes).add(newIndex));
-            setIsRevealed(!isRevealed);
         } else {
-            alert("Congratulations! All Cards Have Been Studied. Press 'Reset Deck' to Study Them Again.")
+            alert("All cards have been viewed!");
             setViewedIndexes(new Set());
         }
-    }
+    };
 
     // Navigates to previous card by popping from history stack and pushing to forward stack
     const handlePrevious = () => {
