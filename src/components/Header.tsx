@@ -1,13 +1,21 @@
-import React from 'react';
-import './Header.css'; 
+import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 
-const Header: React.FC = () => {
+const Header = () => {
   return (
-    <h2>
-      <span className="titleBold">Data Structures & Algorithms FlashCards</span>
-      <span className="titleRegular">: A Light Refresher on the DSA for Technical Interviews</span>
-    </h2>
+      <AppBar position="fixed" sx={{ backgroundColor: 'black' }}>
+          <Toolbar sx={{ justifyContent: 'space-between' }}>
+              <a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Typography variant="h6" component="div">
+                      <b>Data Structures & Algorithms Flashcards:</b> All You Need to Know
+                  </Typography>
+              </a>
+              {/* <div>
+                  <Button color="inherit">About</Button>
+                  <Button color="inherit">Contact Us</Button>
+              </div> */}
+          </Toolbar>
+      </AppBar>
   );
-}
+};
 
 export default Header;

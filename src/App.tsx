@@ -7,10 +7,10 @@ function App() {
 
   return (
     <>
-      <Header />
-      <div style={{ padding: "40px", display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-        <Card />
-      </div>
+        <Header />
+        <div style={{ padding: "40px", display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+          <Card />
+        </div>
     </>
   )
 }

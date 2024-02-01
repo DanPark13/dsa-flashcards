@@ -60,7 +60,7 @@ const Card: React.FC = () => {
             setActiveCardIndex(newIndex);
             setViewedIndexes(prevIndexes => new Set(prevIndexes).add(newIndex));
         } else {
-            alert("All cards have been viewed!");
+            alert("Congratulations! All cards have been viewed!");
             setViewedIndexes(new Set());
         }
     };
