@@ -1,6 +1,12 @@
 // Header.jsx
 import React from 'react';
-import { AppBar, Toolbar, Typography, Switch, FormControlLabel } from '@mui/material';
+import { 
+    AppBar, 
+    Toolbar, 
+    Typography, 
+    // Button,
+    Switch, 
+    FormControlLabel } from '@mui/material';
 
 interface HeaderProps {
     darkMode: boolean;
