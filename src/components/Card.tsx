@@ -22,7 +22,7 @@ const Card: React.FC = () => {
         { question: "What is Dynamic Programming", answer: "A method for solving problems by breaking them down into simpler subproblems. It stores the results of expensive function calls and returns the cached result when the same inputs occur again." },
     ];
 
-    const [cards] = useState(flashCards)
+    const [cards, setCards] = useState(flashCards)
     // const updateCount = () => setCount(count);
 
     const [activeCardIndex, setActiveCardIndex] = useState(0);
@@ -85,6 +85,13 @@ const Card: React.FC = () => {
         }
     }
 
+    const handleShuffle = () => {
+        // Shuffle the cards without resetting the user's progress
+        const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
+        setCards(shuffledCards);
+        // setActiveCardIndex(0);
+      };
+
     // Resets: Same Functionality as if browser was refreshed
     const handleReset = () => {
         setForwardStack([]);
@@ -137,6 +144,7 @@ const Card: React.FC = () => {
             <br></br> */}
 
             <button onClick={handleReset} disabled={!historyStack.length}>Reset Deck</button>
+            <button onClick={handleShuffle}>Shuffle Deck</button>
             <button onClick={handlePrevious} disabled={!historyStack.length}>Backwards</button>
             <button onClick={handleNext} disabled={!forwardStack.length}>Forwards</button>
             <button onClick={handleRandomCard}>New Card</button>
