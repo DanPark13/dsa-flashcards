@@ -1,6 +1,6 @@
 // Header.jsx
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button, Switch, FormControlLabel } from '@mui/material';
+import { AppBar, Toolbar, Typography, Switch, FormControlLabel } from '@mui/material';
 
 interface HeaderProps {
     darkMode: boolean;
@@ -21,8 +21,9 @@ const Header: React.FC<HeaderProps> = ({ darkMode, onDarkModeToggle }) => {
                         control={<Switch color="default" checked={darkMode} onChange={onDarkModeToggle} />}
                         label="Dark Mode"
                     />
-                    <Button color="inherit">About</Button>
-                    <Button color="inherit">Contact Us</Button>
+                    {/* <Button color="inherit">About</Button>
+                    <Button color="inherit">Practice Resources</Button>
+                    <Button color="inherit">Contact Us</Button> */}
                 </div>
             </Toolbar>
         </AppBar>

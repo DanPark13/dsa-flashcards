@@ -1,6 +1,6 @@
 import './App.css'
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material'
 import Header from './components/Header';
 import Card from './components/Card';
