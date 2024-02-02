@@ -1,7 +1,35 @@
-import React, {useState} from "react";
+import React, { useEffect, useState } from 'react';
 import './Card.css'
 
-const Card: React.FC = () => {
+interface CustomCardProps {
+    darkMode: boolean;
+}
+
+const Card: React.FC<CustomCardProps> = ({ darkMode }) => {
+    const [isDarkMode, setIsDarkMode] = useState(darkMode);
+
+    useEffect(() => {
+        setIsDarkMode(darkMode);
+    }, [darkMode]);
+
+    const cardStyle: React.CSSProperties = {
+        border: isDarkMode ? '1px solid white' : '1px solid black',
+        backgroundColor: isDarkMode ? '#333' : 'white',
+        color: isDarkMode ? 'white' : 'black',
+        padding: '16px', // Adjust padding as needed
+        // Add other styles as needed
+    };
+
+    const buttonStyle: React.CSSProperties = {
+        backgroundColor: isDarkMode ? '#555' : '#DDD',
+        color: isDarkMode ? 'white' : 'black',
+        padding: '8px',
+        margin: '4px',
+        borderRadius: '4px',
+        border: isDarkMode ? 'none': '1px solid black',
+        cursor: 'pointer',
+    };
+
     const flashCards = [
         { question: "What if I'm not good at these types of algorithm problems?", answer: "With sufficient practice and intuitive thinking, you can tackle any algorithmic problem. This platform ensures you master the fundamentals of data structures quickly." },
         { question: "What is a Data Structure", answer: "A specific way of organizing and storing data in a computer so it can be accessed and modified efficiently." },
@@ -113,7 +141,7 @@ const Card: React.FC = () => {
 
 
     return (
-        <div>
+        <div style={cardStyle}>
             <div className="card-counts">
                 <span>Cards Reviewed: {viewedIndexes.size}</span>
                 <span>Cards Left: {cards.length - viewedIndexes.size}</span>
@@ -143,11 +171,11 @@ const Card: React.FC = () => {
             </div>
             <br></br> */}
 
-            <button onClick={handleReset} disabled={!historyStack.length}>Reset Deck</button>
-            <button onClick={handleShuffle}>Shuffle Deck</button>
-            <button onClick={handlePrevious} disabled={!historyStack.length}>Backwards</button>
-            <button onClick={handleNext} disabled={!forwardStack.length}>Forwards</button>
-            <button onClick={handleRandomCard}>New Card</button>
+            <button style={buttonStyle} onClick={handleReset} disabled={!historyStack.length}>Reset Deck</button>
+            <button style={buttonStyle} onClick={handleShuffle}>Shuffle Deck</button>
+            <button style={buttonStyle} onClick={handlePrevious} disabled={!historyStack.length}>Backwards</button>
+            <button style={buttonStyle} onClick={handleNext} disabled={!forwardStack.length}>Forwards</button>
+            <button style={buttonStyle} onClick={handleRandomCard}>New Card</button>
         </div>
     );
 }
