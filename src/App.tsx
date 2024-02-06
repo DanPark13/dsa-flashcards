@@ -11,7 +11,7 @@ import PracticeResourcesPage from './PracticeResourcesPage';
 import ContactUsPage from './ContactUsPage';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const handleDarkModeToggle = () => {
       setDarkMode(prevDarkMode => !prevDarkMode);

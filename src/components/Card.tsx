@@ -173,7 +173,7 @@ const Card: React.FC<CustomCardProps> = ({ darkMode }) => {
 
             <button style={buttonStyle} onClick={handleReset} disabled={!historyStack.length}>Reset Deck</button>
             <button style={buttonStyle} onClick={handleShuffle}>Shuffle Deck</button>
-            <button style={buttonStyle} onClick={handlePrevious} disabled={!historyStack.length}>Backwards</button>
+            <button style={buttonStyle} onClick={handlePrevious} disabled={!historyStack.length}>Previous</button>
             <button style={buttonStyle} onClick={handleNext} disabled={!forwardStack.length}>Forwards</button>
             <button style={buttonStyle} onClick={handleRandomCard}>New Card</button>
         </div>
