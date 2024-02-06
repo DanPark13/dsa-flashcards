@@ -38,7 +38,6 @@ function App() {
         <CssBaseline />
         <div>
         <Header darkMode={darkMode} onDarkModeToggle={handleDarkModeToggle} />
-          <BrowserRouter>
             <Routes>
               <Route path="/" element={<Header darkMode={darkMode} onDarkModeToggle={handleDarkModeToggle} />}/>
                 <Route index element={<Card darkMode={darkMode}/>}/>
@@ -46,7 +45,6 @@ function App() {
                 <Route path="contact-us" element={<ContactUsPage />} />
                 <Route path="practice-resources" element={<PracticeResourcesPage />} />
             </Routes>
-          </BrowserRouter>
         </div>
     </ThemeProvider>
   );

@@ -1,12 +1,7 @@
-// Header.jsx
+// Header.tsx
 import React from 'react';
-import { 
-    AppBar, 
-    Toolbar, 
-    Typography, 
-    // Button,
-    Switch, 
-    FormControlLabel } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Switch, FormControlLabel } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
     darkMode: boolean;
@@ -17,19 +12,25 @@ const Header: React.FC<HeaderProps> = ({ darkMode, onDarkModeToggle }) => {
     return (
         <AppBar position="fixed" sx={{ backgroundColor: darkMode ? '#333' : 'white', color: darkMode ? 'white' : 'black' }}>
             <Toolbar sx={{ justifyContent: 'space-between' }}>
-                <a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <Typography variant="h6" component="div">
-                        <b>Data Structures & Algorithms Essentials:</b> All You Need to Know for Technical Interviews
+                        <b>Data Structures & Algorithms</b>: All you Need to Know for Technical Interviews
                     </Typography>
-                </a>
+                </Link>
                 <div>
                     <FormControlLabel
                         control={<Switch color="default" checked={darkMode} onChange={onDarkModeToggle} />}
                         label="Dark Mode"
                     />
-                    {/* <Button color="inherit">About</Button>
-                    <Button color="inherit">Practice Resources</Button>
-                    <Button color="inherit">Contact Us</Button> */}
+                    <Button color="inherit" component={Link} to="/about">
+                        About Us
+                    </Button>
+                    <Button color="inherit" component={Link} to="/practice-resources">
+                        Practice Resources
+                    </Button>
+                    {/* <Button color="inherit" component={Link} to="/contact-us">
+                        Contact Us
+                    </Button> */}
                 </div>
             </Toolbar>
         </AppBar>
