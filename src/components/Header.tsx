@@ -22,11 +22,14 @@ const Header: React.FC<HeaderProps> = ({ darkMode, onDarkModeToggle }) => {
                         control={<Switch color="default" checked={darkMode} onChange={onDarkModeToggle} />}
                         label="Dark Mode"
                     />
+                    <Button color="inherit" component={Link} to="/">
+                        Home
+                    </Button>
                     <Button color="inherit" component={Link} to="/about">
-                        About Us
+                        About
                     </Button>
                     <Button color="inherit" component={Link} to="/practice-resources">
-                        Practice Resources
+                        Other Resources
                     </Button>
                     {/* <Button color="inherit" component={Link} to="/contact-us">
                         Contact Us

@@ -1,7 +1,7 @@
 import './App.css'
 
 import { useState } from 'react';
-import { Routes, Route, Outlet, Link, BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material'
 
 import Header from './components/Header';
